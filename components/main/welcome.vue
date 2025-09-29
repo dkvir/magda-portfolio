@@ -134,9 +134,24 @@ function createArrowAnimation() {
   padding: 0 var(--page-offset-padding);
   background-color: var(--color-white);
   overflow: hidden;
+  @include mq(max-width 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 10vh;
+  }
+
+  @include mq(max-width 540px) {
+    justify-content: center;
+    padding-top: 0;
+  }
 
   .texts {
     @include size(100%);
+    @include mq(max-width 768px) {
+      height: auto;
+    }
   }
   .heading {
     font-size: get-vw(400px);
@@ -156,10 +171,19 @@ function createArrowAnimation() {
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    @include mq(max-width 768px) {
+      z-index: 0;
+    }
     .img {
       width: 90%;
       height: auto;
       object-fit: contain;
+      @include mq(max-width 768px) {
+        width: 120%;
+      }
+      @include mq(max-width 540px) {
+        width: 150%;
+      }
     }
   }
 
@@ -170,27 +194,43 @@ function createArrowAnimation() {
     padding: var(--page-offset-padding);
     width: 30%;
     transform: translate3d(0, -70%, 0);
+    @include mq(769px 1366px) {
+      width: 40%;
+    }
+    @include mq(max-width 768px) {
+      position: initial;
+      transform: initial;
+      width: 100%;
+    }
   }
 
   .description {
-    font-size: get-vw(30px);
+    font-size: var(--font-smallest);
     font-family: var(--font-neuemontreal-bold);
     color: var(--color-black);
     text-align: end;
   }
 
   .start-event {
-    margin-top: 120px;
-    font-size: get-vw(80px);
+    margin-top: get-vh(120px);
+    font-size: var(--font-largest);
     font-family: var(--font-mangogrotesque-bold);
     color: var(--color-black);
     width: 65%;
-    border-bottom: 16px solid var(--color-black);
+    border-bottom: css-clamp(4px, 16px) solid var(--color-black);
     opacity: var(--start-opacity, 0.8);
     cursor: pointer;
     @include default-transitions(opacity);
+
     &:hover {
       --start-opacity: 1;
+    }
+
+    @include mq(max-width 1366px) {
+      width: auto;
+    }
+    @include mq(max-width 1024px) {
+      border-bottom: 2px solid var(--color-black);
     }
   }
 
@@ -199,9 +239,13 @@ function createArrowAnimation() {
     bottom: var(--page-offset-padding);
     left: var(--page-offset-padding);
     overflow: hidden;
-    @include size(200px);
+    @include size(get-vw(200px));
     border: 4px solid var(--color-black);
     border-radius: 50%;
+
+    @include mq(max-width 1024px) {
+      border: 2px solid var(--color-black);
+    }
 
     .arrow-element {
       position: absolute;
@@ -211,8 +255,10 @@ function createArrowAnimation() {
   }
 
   .scroll-down {
+    height: 68%;
+    display: block;
     :deep(svg) {
-      height: 68%;
+      height: 100%;
       width: auto;
     }
   }

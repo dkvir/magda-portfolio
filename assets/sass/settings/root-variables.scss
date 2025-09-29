@@ -19,6 +19,36 @@
 
   --footer-height: 55vh;
 
+  --font-largest: #{css-clamp(52px, 80px)};
+  --font-large: #{css-clamp(40px, 64px)};
+  --font-medium: #{css-clamp(36px, 48px)};
+  --font-small: #{css-clamp(26px, 36px)};
+  --font-smallest: #{css-clamp(24px, 32px)};
+
+  @include mq(769px 1024px) {
+    --font-largest: #{css-clamp-vw(32px, 52px, 1024)};
+    --font-large: #{css-clamp-vw(36px, 40px, 1024)};
+    --font-medium: #{css-clamp-vw(24px, 36px, 1024)};
+    --font-small: #{css-clamp-vw(21px, 26px, 1024)};
+    --font-smallest: #{css-clamp-vw(21px, 24px, 1024)};
+  }
+
+  @include mq(401px 768px) {
+    --font-largest: #{css-clamp-vw(28px, 32px, 768)};
+    --font-large: #{css-clamp-vw(28px, 36px, 768)};
+    --font-medium: #{css-clamp-vw(21px, 24px, 768)};
+    --font-small: #{css-clamp-vw(16px, 21px, 768)};
+    --font-smallest: #{css-clamp-vw(18px, 21px, 768)};
+  }
+
+  @include mq(max-width 400px) {
+    --font-largest: 26px;
+    --font-large: 26px;
+    --font-medium: 18px;
+    --font-small: 14px;
+    --font-smallest: 14px;
+  }
+
   --page-offset-padding: 22px;
   --app-header-height: 25px;
   @include mq(max-width 768px) {

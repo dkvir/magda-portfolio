@@ -65,22 +65,32 @@ const startEventLeave = (index) => {
 
 <style lang="scss" scoped>
 .socials {
-  --social-distance: 100px;
+  --social-distance: #{css-clamp(60px, 100px)};
 
   width: 100%;
   padding-bottom: 15px;
   border-bottom: 4px solid var(--color-black);
+  @include mq(max-width 1024px) {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-black);
+  }
+  @include mq(max-width 768px) {
+    --social-distance: 20px;
+  }
 
   .social {
     @include list-distance(left, var(--social-distance));
     padding-right: var(--social-distance);
     &:not(:last-child) {
       border-right: 2px solid var(--color-black);
+      @include mq(max-width 1024px) {
+        border-right: 1px solid var(--color-black);
+      }
     }
   }
 
   .social-link {
-    font-size: 36px;
+    font-size: var(--font-small);
     font-family: var(--font-neuemontreal-bold);
     color: var(--color-black);
   }

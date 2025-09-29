@@ -37,19 +37,32 @@ const props = defineProps({
 <style lang="scss" scoped>
 .contact-blocks {
   width: 75%;
-  margin-top: 40px;
+  margin-top: css-clamp(20px, 40px);
+  font-family: var(--font-neuemontreal-regular);
+  font-size: var(--font-smallest);
+
+  @include mq(max-width 768px) {
+    width: 90%;
+  }
+
+  @include mq(max-width 540px) {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .block {
+    @include mq(max-width 540px) {
+      @include list-distance(top, 20px);
+    }
+  }
 
   .label {
-    font-size: 32px;
-    font-family: var(--font-neuemontreal-regular);
     color: var(--color-black);
     line-height: 1;
   }
   .value {
     position: relative;
     margin-top: 10px;
-    font-size: 32px;
-    font-family: var(--font-neuemontreal-bold);
     color: var(--color-black);
     line-height: 1;
 

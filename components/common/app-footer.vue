@@ -7,10 +7,12 @@
         <common-atoms-contact-blocks />
       </div>
     </div>
-    <div class="copyrights flex-center justify-between">
-      <div class="name uppercase">Magda Patsiashvili</div>
-      <div class="year">© {{ new Date().getFullYear() }}</div>
-      <div @click="backtoTop" class="back-top uppercase">Back to top</div>
+    <div class="copyrights flex-center">
+      <div class="copyrights-frame flex-center justify-between">
+        <div class="name uppercase">Magda Patsiashvili</div>
+        <div class="year">© {{ new Date().getFullYear() }}</div>
+        <div @click="backtoTop" class="back-top uppercase">Back to top</div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,23 +40,39 @@ const backtoTop = () => {
   }
 
   .footer-center {
-    width: 75%;
+    width: 80%;
+    @include mq(max-width 1200px) {
+      width: 100%;
+    }
   }
 
   .center-text {
-    margin-top: var(--page-offset-padding);
-    font-size: 60px;
+    font-size: var(--font-large);
     font-family: var(--font-neuemontreal-bold);
     text-align: center;
   }
 
   .copyrights {
-    position: relative;
     border-top: 4px solid var(--color-black);
     width: 100%;
     padding-top: 20px;
-    font-size: get-vw(36px);
+    font-size: var(--font-small);
     font-family: var(--font-neuemontreal-bold);
+    @include mq(max-width 1024px) {
+      padding-top: 10px;
+      border-top: 1px solid var(--color-black);
+    }
+  }
+
+  .copyrights-frame {
+    position: relative;
+    width: 100%;
+  }
+
+  .name {
+    @include mq(max-width 1024px) {
+      display: none;
+    }
   }
 
   .year {
@@ -62,6 +80,10 @@ const backtoTop = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @include mq(max-width 1024px) {
+      position: initial;
+      transform: initial;
+    }
   }
 
   .back-top {

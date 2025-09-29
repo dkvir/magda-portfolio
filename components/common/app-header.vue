@@ -42,7 +42,7 @@ const scrollTo = (item) => {
   color: var(--color-white);
 
   .item {
-    font-size: get-vw(64px);
+    font-size: var(--font-large);
     font-family: var(--font-mangogrotesque-bold);
     cursor: pointer;
     opacity: var(--item-opacity, 1);

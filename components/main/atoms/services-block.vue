@@ -24,20 +24,28 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .services-block {
-  margin-top: 60px;
+  margin-top: css-clamp(40px, 60px);
+
   .title {
-    font-size: get-vw(48px);
+    font-size: var(--font-medium);
     font-family: var(--font-neuemontreal-bold);
   }
 
   .list {
     margin-top: 30px;
+    @include mq(max-width 768px) {
+      margin-top: 20px;
+    }
   }
 
   .item {
-    font-size: get-vw(80px);
+    font-size: var(--font-largest);
     font-family: var(--font-neuemontreal-bold);
     line-height: 1;
+    text-align: center;
+    @include mq(max-width 768px) {
+      @include list-distance(top, 20px);
+    }
   }
 }
 </style>

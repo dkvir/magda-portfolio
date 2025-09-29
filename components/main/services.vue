@@ -24,6 +24,12 @@
   background-color: var(--color-black);
   padding: var(--page-offset-padding);
 
+  @include mq(max-width 768px) {
+    height: auto;
+    padding: css-clamp(40px, 80px) var(--page-offset-padding);
+    padding-bottom: 80px;
+  }
+
   .focus-block {
   }
 }
