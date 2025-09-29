@@ -15,10 +15,16 @@
 const scrollTo = (item) => {
   if (item.disabled) return;
 
-  const element = document.getElementById(item.label.toLowerCase());
+  if (item.label === "contact") {
+    window.lenis.scrollTo("bottom", {
+      duration: 1.5,
+    });
+  } else {
+    const element = document.getElementById(item.label.toLowerCase());
 
-  if (element) {
-    window.lenis.scrollTo(element, { duration: 1.5, offset: -80 });
+    if (element) {
+      window.lenis.scrollTo(element, { duration: 1.5, offset: -80 });
+    }
   }
 };
 </script>
