@@ -40,10 +40,11 @@
 import gsap from "gsap";
 
 const split = ref(null);
-const tl = gsap.timeline({ paused: true });
+let tl = null;
 const arrowElement = ref(null);
 
 onMounted(() => {
+  tl = gsap.timeline({ paused: true });
   split.value = new SplitText(".welcome .start-event", { type: "chars" });
 
   split.value.chars.forEach((char, index) => {
