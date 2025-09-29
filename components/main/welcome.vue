@@ -181,9 +181,6 @@ function createArrowAnimation() {
       @include mq(max-width 768px) {
         width: 120%;
       }
-      @include mq(max-width 540px) {
-        width: 150%;
-      }
     }
   }
 
